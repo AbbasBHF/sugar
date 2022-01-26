@@ -51,6 +51,7 @@ vmodel.bindDuplex = function (type) {
         case 'text':
         case 'password':
         case 'textarea':
+        case 'search':
             form = text
             // 可以使用 trim 属性来清除首尾空格
             this.trim = hasAttr(el, 'trim')
