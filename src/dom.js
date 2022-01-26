@@ -1,5 +1,5 @@
 /**
- * 是否是元素节点
+ * Is it an element node
  * @param   {Element}  element
  * @return  {Boolean}
  */
@@ -8,7 +8,7 @@ export function isElement (element) {
 }
 
 /**
- * 是否是文本节点
+ * Is it a text node
  * @param   {Element}  element
  * @return  {Boolean}
  */
@@ -17,7 +17,7 @@ export function isTextNode (element) {
 }
 
 /**
- * 清空 element 的所有子节点
+ * Clear all children of element
  * @param  {Element}  element
  */
 export function empty (element) {
@@ -28,7 +28,7 @@ export function empty (element) {
 }
 
 /**
- * 获取节点属性值
+ * Get node attribute value
  * @param   {Element}  node
  * @param   {String}   name
  * @return  {String}
@@ -38,7 +38,7 @@ export function getAttr (node, name) {
 }
 
 /**
- * 移除节点属性
+ * Remove node attribute
  * @param  {Element}  node
  * @param  {String}   name
  */
@@ -47,13 +47,13 @@ export function removeAttr (node, name) {
 }
 
 /**
- * 设置节点属性
+ * Set node attribute
  * @param  {Element}  node
  * @param  {String}   name
  * @param  {String}   value
  */
 export function setAttr (node, name, value) {
-    // 设为 null/undefined 和 false 移除该属性
+    // Remove attribute if value is null/undefined or false
     if (value == null || value === false) {
         return removeAttr(node, name)
     }
@@ -61,8 +61,8 @@ export function setAttr (node, name, value) {
     if (value === true) {
         node[name] = value
 
-        // 有些浏览器/情况下用 node[name] = true
-        // 是无法添加自定义属性的，此时设置一个空字符串
+        // Some browsers use node[name] = true
+        // It is not possible to add custom attributes, at this time set an empty string
         if (!hasAttr(node, name)) {
             node.setAttribute(name, '')
         }
@@ -72,7 +72,7 @@ export function setAttr (node, name, value) {
 }
 
 /**
- * 判断节点是否存在属性
+ * Determine if a node has an attribute
  * @param   {Element}  node
  * @param   {String}   name
  * @return  {Boolean}
@@ -82,7 +82,7 @@ export function hasAttr (node, name) {
 }
 
 /**
- * 节点是否存在 classname
+ * Determine if a node has classname
  * @param   {Element}  node
  * @param   {String}   classname
  * @return  {Boolean}
@@ -100,7 +100,7 @@ export function hasClass (node, classname) {
 }
 
 /**
- * 节点添加 classname
+ * Add classname to node
  * @param  {Element}  node
  * @param  {String}   classname
  */
@@ -124,7 +124,7 @@ export function addClass (node, classname) {
 }
 
 /**
- * 节点删除 classname
+ * Remove classname from node
  * @param  {Element}  node
  * @param  {String}   classname
  */
@@ -155,7 +155,7 @@ export function removeClass (node, classname) {
 }
 
 /**
- * 节点事件绑定
+ * Bind a node event
  * @param  {Element}   node
  * @param  {String}    evt
  * @param  {Function}  callback
@@ -166,7 +166,7 @@ export function addEvent (node, evt, callback, capture) {
 }
 
 /**
- * 解除节点事件绑定
+ * Unbind a node event
  * @param  {Element}   node
  * @param  {String}    evt
  * @param  {Function}  callback
@@ -177,7 +177,7 @@ export function removeEvent (node, evt, callback, capture) {
 }
 
 /**
- * 导出作为组件系统的 DOM 处理构造函数
+ * Export the DOM handling constructor as a component system
  */
 export default function DOM () {
     this.empty = empty
